@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="container">
+	  <div class="glassmorphism-box">
+		<input  type="text" id="questionInput" placeholder="Ask me anything">
+		<button id="sendRequest" onclick=sendRequest>Ask</button>
+		<button id="updateResponse" onclick=updateResponse>Test</button>
+	  </div>
+	  
+	  <div class="glassmorphism-box response-box">
+		<textarea id="responseTextArea" placeholder="Response will appear here" readonly></textarea>
+	  </div>
+	</div>
+  </Layout>
+
+  <script>
+
+function sendRequest() {
+  // Your code to send an HTTP POST request to the inference endpoint
+  // Update the responseDiv with the received response
+}
+
+function updateResponse() {
+  var question = document.getElementById('questionInput').value;
+
+  document.getElementById('responseTextArea').value = question;
+
+
+  document.getElementById('questionInput').value = ''
+
+}
+
+  var button = document.getElementById('updateResponse')
+  button.addEventListener('click', () => {
+	updateResponse()
+    });
+
+  </script>
+
+	<style>
+	  @import './styles.css';
+	</style>
+
+
